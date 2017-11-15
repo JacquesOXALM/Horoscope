@@ -1,18 +1,22 @@
-
 function Horoscope() {
     name = document.getElementById("name").value;
     month = document.getElementById("month").value;
     day = document.getElementById("day").value;
     console.log(month + day + name);
-    if (name != "") {
+    n = new Date();
+    m = n.getMonth()+1;
+    d= n.getDate();
+    if(d==day && m==month) {
+        document.body.style.backgroundImage = "url('https://vignette.wikia.nocookie.net/kungfupanda/images/0/0a/Kung-fu-panda-po.jpg/revision/latest/scale-to-width-down/280?cb=20110313000817&path-prefix=es')"
+        document.getElementById("Birthday").innerHTML = "Happy Birthday " +name+ ". Death will come for you soon. "
+    }else if (name != "") {
         document.getElementById("Sign").innerHTML = determineHoroscope();
         document.getElementById("HoroscopeMeat").innerHTML = theMeatOfTheHoroscope();
         document.getElementById("Image").innerHTML = determineImage();
     }else{
-        document.getElementById("HoroscopeMeat").innerHTML = "Please enter your name, you Silly Willy.";
+        document.getElementById("Sign").innerHTML = "Please enter your name, Silly Willy.";
     }
 }
-
 
 
 
@@ -32,7 +36,7 @@ function determineImage(){
     }else if(sign==7){
         return "<img src='img/Leo.png' width='400' height='300'/>";
     }else if(sign==8){
-        return "<img src='img/Virgo.png' width='400' height='300'/>";
+        return "<img src='img/Virgo.png' width='350' height='250'/>";
     }else if(sign==9){
         return "<img src='img/Libra.png' width='400' height=300/>";
     }else if(sign==10){
